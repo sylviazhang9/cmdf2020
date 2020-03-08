@@ -13,7 +13,7 @@ class ApiState extends State<Api> {
    final client = http.Client();
    String result;
   
-  final String url = 'https://qna-workshop.azurewebsites.net/qnamaker/knowledgebases/bd41b64b-4cdb-4a92-978a-767b4ed1a20a/generateAnswer';
+  final String url = 'https://qna-workshop.azurewebsites.net/qnamaker/knowledgebases/---/generateAnswer';
 
   @override
   void didChangeDependencies() {
@@ -24,7 +24,7 @@ class ApiState extends State<Api> {
     try {
       final response = await client.post(url,
         headers: {
-          'Authorization': 'EndpointKey xx',
+          'Authorization': 'EndpointKey ---',
           'Content-Type': 'application/json',
         },
         body: jsonEncode({'question':'<Your question>'})
@@ -39,6 +39,9 @@ class ApiState extends State<Api> {
   Widget build(BuildContext context) {
     return Container(
       child: Text(result == null ? "" : result),
+//      TextField(
+//        something here
+//      )
     );
   }
 }
